@@ -15,7 +15,7 @@ class EXIFDateTime extends DateTimeImmutable
      *
      * @return bool|EXIFDateTime
      */
-    public static function createFromEXIFData(string $datetime, string $subseconds = null, string $timeoffset = null)
+    public static function createFromEXIFData(string $datetime, ?string $subseconds = null, ?string $timeoffset = null)
     {
         return parent::createFromFormat(self::EXIF_EXTENDED, sprintf('%s.%s%s', $datetime, rtrim($subseconds ?? '0', "\x00\x20"), $timeoffset ?? '+00:00'));
     }
